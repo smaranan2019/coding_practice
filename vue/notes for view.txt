@@ -1,0 +1,63 @@
+Internal Vue Instance 
+-------------------------------
+1. vue instance 
+    a. refer to html id in vue instance using el 
+    b. able to create data and methods - function 
+    c. able to reference global variables - need to call them in a function - called a method
+        i. reference to global variable data.component_name 
+        ii. data is your declared global variable
+
+2. creating vue components <vue-component_name></vue-component_name>
+    a. like an html tag
+    b. has its own methods 
+    c. able to store an entire HTML div from HTML tags to internal components and display as a template 
+    d. template can have 
+        i. html tags 
+        ii. methods - must be declared within the component 
+    e. use 'props' to pass data from parent <div> to child (component)
+        i. pass in a variable that receives the data from the parent 
+        ii. receive from the vue component as props
+        iii. not passed in as a fuction {{ make use of these instead }}
+<html>
+
+< div id = "vue_id"> 
+    <p> {{ vue_component }} </p>
+
+    <p> {{ getComponent() }} </p>
+
+    #HTML components 
+
+    <my-component my_data ="pass this in"></my-component>
+</div>
+
+</html>
+
+<script>
+
+#referring to global variable from HTML - need to put them in a function to call them. 
+
+var data = {
+    vue_component2: "some text here"
+}
+
+
+Vue.component("my-component", {
+    props: ["my_data"],
+    template: `
+    <p> {{ my_data }} </p>
+    `,
+        
+})
+
+
+var app = new Vue ({
+    el: "#vue_id",
+    data: {
+        vue_component: "smth you wanna appear at the HTML"
+    }
+    
+    }
+
+})
+
+</script>
