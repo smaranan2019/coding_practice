@@ -1,0 +1,27 @@
+Event Handling ~ Document Object Model
+
+Accessing HTML Elements 
+-----------------------------------
+1. document.getElementByID(id)
+    - returns element object or null
+
+2. document.getElementByTagName(name)
+    - example - "h1", "div", "p"
+    - return nodelist object (all nodes, accessible by index, starting from 0)
+    - to be able to see all the nodes ~ you would have to loop through them in a for-loop
+
+3. document.getElementByClassName(name)
+    - return nodelist object (all nodes, accessible by index, starting from 0)
+
+
+4. document.forms[name]
+    - return htmlcollection object which can accessed by index 
+        ie html code: <form name="some_form"> XXXXX </form> ~ to obtain form info - let some_form = docuemnt.form["some_form];
+
+
+5. innerHTML vs innertText 
+    - example:
+        let vairable = document.getElementByID("id_name");
+        vairable.innerText = "hello John" - returns only plain text 
+
+        vairable.innerHTML - this would include white spacing and inner html elements such as <span style="color:blue"></span>
